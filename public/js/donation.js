@@ -22,8 +22,8 @@ async function initializeStripe() {
         errorMsg = await response.text();
       }
       
-      console.error('Config endpoint returned error:', errorMsg);
-      throw new Error(`Failed to load Stripe config: ${errorMsg}`);
+      //console.error('Config endpoint returned error:', errorMsg);
+      //throw new Error(`Failed to load Stripe config: ${errorMsg}`);
     }
     
     // Parse response as JSON with error handling
@@ -31,8 +31,8 @@ async function initializeStripe() {
     try {
       config = await response.json();
     } catch (jsonError) {
-      console.error('Response was not valid JSON. Response status:', response.status);
-      console.error('Response text:', await response.text());
+      //console.error('Response was not valid JSON. Response status:', response.status);
+      //console.error('Response text:', await response.text());
       throw new Error('Server returned invalid JSON (possibly an error page)');
     }
     
@@ -59,7 +59,7 @@ async function initializeStripe() {
       submitBtn.disabled = !event.complete;
     });
   } catch (error) {
-    console.error('Error initializing Stripe:', error.message || error);
+    //console.error('Error initializing Stripe:', error.message || error);
     displayPaymentStatus('Failed to initialize payment. Please ensure the server is running and STRIPE_PUBLIC_KEY is configured.', 'error');
   }
 }
@@ -68,7 +68,7 @@ async function initializeStripe() {
 document.getElementById('donation-form').addEventListener('submit', handleFormSubmit);
 
 async function handleFormSubmit(e) {
-    console.log("button pressed");
+    //console.log("button pressed");
   e.preventDefault();
 
   const name = document.getElementById('name').value;
@@ -141,7 +141,7 @@ async function handleFormSubmit(e) {
       displayPaymentStatus('Please complete the additional authentication required.', 'loading');
     }
   } catch (error) {
-    console.error('Error processing payment:', error);
+    //console.error('Error processing payment:', error);
     displayPaymentStatus('An error occurred while processing your donation. Please try again.', 'error');
     submitBtn.disabled = false;
   }

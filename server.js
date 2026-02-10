@@ -37,7 +37,7 @@ app.get('/config', (req, res) => {
       publicKey: process.env.STRIPE_PUBLIC_KEY
     });
   } catch (error) {
-    console.error('Error in /config endpoint:', error);
+    //console.error('Error in /config endpoint:', error);
     res.status(500).json({
       error: 'Failed to get Stripe configuration',
       message: error.message
@@ -98,8 +98,7 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
   // Handle the event
   if (event.type === 'payment_intent.succeeded') {
     const paymentIntent = event.data.object;
-    console.log('Payment succeeded:', paymentIntent.id);
-    // Here you could save the donation to your database
+    //console.log('Payment succeeded:', paymentIntent.id);
   }
 
   res.json({ received: true });
