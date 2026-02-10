@@ -1,0 +1,19 @@
+{
+  "name": "tkh-donations",
+  "version": "1.0.0",
+  "description": "Church donation website with Stripe payment integration",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["donations", "stripe", "church"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "stripe": "^14.0.0",
+    "dotenv": "^16.0.3",
+    "body-parser": "^1.20.2"
+  }
+}
